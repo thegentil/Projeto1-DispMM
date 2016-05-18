@@ -331,18 +331,18 @@ figure (10)
 whitebg('k') 
 
 subplot (1,2,1)
-plot(theta*180/pi,F4,'r','LineWidth',2)
-title('Força Barra AC x Theta')
-xlabel('Theta (graus)')
-ylabel('Força Barra AC (N)')
+plot(tempo,Fy4,'r','LineWidth',2)
+title('F4y x Tempo')
+xlabel('Tempo')
+ylabel('F4y (N)')
 grid
 axis tight
 
 subplot (1,2,2)
-plot(theta*180/pi,F5,'w','LineWidth',2)
-title('Força Barra AB x Theta')
-xlabel('Theta (graus)')
-ylabel('Força Barra AB (N)')
+plot(tempo,Fx4,'w','LineWidth',2)
+title('F4x x Tempo')
+xlabel('Tempo')
+ylabel('F4x (N)')
 grid
 axis tight
 
@@ -350,38 +350,21 @@ figure (11)
 
 whitebg('k') 
 
-subplot (1,2,1)
-plot(tempo,O,'r','LineWidth',2)
-title('Força Ponto O x Tempo')
-xlabel('Tempo (s)')
-ylabel('Força Ponto O (N)')
+plot(tempo,Fy5,'r','LineWidth',2)
+title('F5y x Tempo')
+xlabel('Tempo')
+ylabel('F5y (N)')
 grid
 axis tight
 
-subplot (1,2,2)
-plot(theta*180/pi,O,'w','LineWidth',2)
-title('Força Ponto O x Theta')
-xlabel('Theta (graus)')
-ylabel('Força Ponto O (N)')
-grid
-axis tight
 
 figure (12)
 
 whitebg('k') 
 
-subplot (1,2,1)
 plot(tempo,Fm,'r','LineWidth',2)
 title('Força de entrada x Tempo')
 xlabel('Tempo (s)')
-ylabel('Força de entrada (N)')
-grid
-axis tight
-
-subplot (1,2,2)
-plot(theta*180/pi,Fm,'w','LineWidth',2)
-title('Força de entrada x Theta')
-xlabel('Theta (graus)')
 ylabel('Força de entrada (N)')
 grid
 axis tight
@@ -448,5 +431,33 @@ xlabel('Tempo (s)')
 ylabel('alpha barra CA (rad/s^2)')
 grid
 axis tight
+
+figure (17)
+
+whitebg('k') 
+
+subplot (1,2,1)
+plot(tempo,Oy,'r','LineWidth',2)
+title('FBy x Tempo')
+xlabel('Tempo')
+ylabel('F4y (N)')
+grid
+axis tight
+
+subplot (1,2,2)
+plot(tempo,Ox,'w','LineWidth',2)
+title('FBx x Tempo')
+xlabel('Tempo')
+ylabel('F4x (N)')
+grid
+axis tight
+
+for i = 1:119
+    integral(i) = Ag(i).*(tempo(i + 1) - tempo(i));
+end
+
+aef = cumsum(integral)
+tempo
+tempo*vin
 
 end
