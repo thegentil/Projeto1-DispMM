@@ -440,7 +440,7 @@ subplot (1,2,1)
 plot(tempo,Oy,'r','LineWidth',2)
 title('FBy x Tempo')
 xlabel('Tempo')
-ylabel('F4y (N)')
+ylabel('FBy (N)')
 grid
 axis tight
 
@@ -448,7 +448,7 @@ subplot (1,2,2)
 plot(tempo,Ox,'w','LineWidth',2)
 title('FBx x Tempo')
 xlabel('Tempo')
-ylabel('F4x (N)')
+ylabel('FBx (N)')
 grid
 axis tight
 
